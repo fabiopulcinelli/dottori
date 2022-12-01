@@ -28,14 +28,15 @@ public class Dottore {
 	@Column(name = "inVisita")
 	private Boolean inVisita;
 	@Column(name = "inServizio")
-	private String inServizio;
+	private Boolean inServizio;
 	
 	public Dottore() {
 	}
 
-	public Dottore(String nome, String cognome, String codiceDottore, String codFiscalePazienteAttualmenteInVisita,
-			Boolean inVisita, String inServizio) {
+	public Dottore(Long id, String nome, String cognome, String codiceDottore, String codFiscalePazienteAttualmenteInVisita,
+			Boolean inVisita, Boolean inServizio) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.codiceDottore = codiceDottore;
