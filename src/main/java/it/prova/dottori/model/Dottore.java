@@ -44,6 +44,18 @@ public class Dottore {
 		this.inVisita = inVisita;
 		this.inServizio = inServizio;
 	}
+	
+	public Dottore(String nome, String cognome, String codiceDottore, String codFiscalePazienteAttualmenteInVisita,
+			Boolean inVisita, Boolean inServizio) {
+		super();
+		this.nome = nome;
+		this.cognome = cognome;
+		this.codiceDottore = codiceDottore;
+		this.codFiscalePazienteAttualmenteInVisita = codFiscalePazienteAttualmenteInVisita;
+		this.inVisita = inVisita;
+		this.inServizio = inServizio;
+	}
+
 
 	public Dottore(Long id) {
 		super();
