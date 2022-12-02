@@ -104,4 +104,17 @@ public class DottoreController {
 		
 		dottoreAggiornato = dottoreService.aggiorna(dottoreAggiornato);
 	}
+	
+	@PutMapping("terminaVisita")
+	public void terminaVisita(@RequestBody DottoreInfoDTO doc) {
+		DottoreInfoDTO dottore = new DottoreInfoDTO(doc.getCodiceDottore(),doc.getCodFiscalePazienteAttualmenteInVisita());
+
+		Dottore dottoreAggiornato = dottoreService.caricaPerCodice(dottore.getCodiceDottore());
+		dottoreAggiornato.setCodFiscalePazienteAttualmenteInVisita(dottore.getCodFiscalePazienteAttualmenteInVisita());
+		
+		dottoreAggiornato.setInVisita(false);
+		dottoreAggiornato.setCodFiscalePazienteAttualmenteInVisita(null);
+		
+		dottoreAggiornato = dottoreService.aggiorna(dottoreAggiornato);
+	}
 }
