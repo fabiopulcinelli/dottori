@@ -96,7 +96,7 @@ public class DottoreController {
 	@PutMapping("impostaInVisita")
 	public void impostaInVisita(@RequestBody DottoreInfoDTO doc) {
 		DottoreInfoDTO dottore = new DottoreInfoDTO(doc.getCodiceDottore(),doc.getCodFiscalePazienteAttualmenteInVisita());
-		
+
 		Dottore dottoreAggiornato = dottoreService.caricaPerCodice(dottore.getCodiceDottore());
 		dottoreAggiornato.setCodFiscalePazienteAttualmenteInVisita(dottore.getCodFiscalePazienteAttualmenteInVisita());
 		
