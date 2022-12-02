@@ -12,4 +12,7 @@ public interface DottoreService {
 
 	public List<Dottore> listAll();
 
+	Dottore aggiorna(Dottore dottoreInstance);
+	
+	void rimuovi(Dottore dottoreInstance);
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import it.prova.dottori.model.Dottore;
 import it.prova.dottori.repository.DottoreRepository;
+import it.prova.triage.web.api.exception.DottoreNotDeletable;
 
 @Service
 public class DottoreServiceImpl implements DottoreService {
@@ -27,6 +28,19 @@ public class DottoreServiceImpl implements DottoreService {
 	@Override
 	public List<Dottore> listAll() {
 		return (List<Dottore>) repository.findAll();
+	}
+
+	@Override
+	public Dottore aggiorna(Dottore dottoreInstance) {
+		return repository.save(dottoreInstance);
+	}
+
+	@Override
+	public void rimuovi(Dottore dottoreInstance) {
+		if(dottoreInstance.getInVisita() || dottoreInstance.getInServizio())
+			throw new DottoreNotDeletable("impossibile eliminare un dottore in visita o in servizio");
+		
+		repository.delete(dottoreInstance);
 	}
 
 }
